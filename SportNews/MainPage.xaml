@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SportNews" 
+             x:Class="SportNews.MainPage" Title="Sport News">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update" Clicked="Handle_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <Grid>
+        <ActivityIndicator x:Name="Loading" IsVisible="true" IsRunning="true" VerticalOptions="Center" HorizontalOptions="Center" />
+    <ListView x:Name="News" CachingStrategy="RecycleElement" HasUnevenRows="true" IsVisible="false">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid Padding="15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image HeightRequest="100" Source="{Binding Image}" Aspect="AspectFill" />
+                       
+                            <Label Grid.Column="2" VerticalOptions="Start" FontAttributes="Bold" Text="{Binding FeedItem.Title}" />
+                            <Label Grid.Column="2" VerticalOptions="End"  Text="{Binding Source}" />
+                     
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+        </Grid>
+</ContentPage>
